@@ -1,0 +1,3 @@
+To tackle the growing cost of Azure Cosmos DB due to increased data volume, this solution introduces a cost-effective data archival mechanism.
+It ensures that frequently accessed billing records remain in Cosmos DB, while older records (older than 90 days) are seamlessly offloaded to Azure Blob Storage. 
+The existing API contract remains unchanged.
