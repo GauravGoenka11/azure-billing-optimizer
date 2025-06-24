@@ -1,0 +1,7 @@
+Create a Blob Storage container with Cool or Archive tier.
+
+Deploy the timer-triggered Azure Function.
+
+Update the read endpoint logic in the API layer to include fallback mechanism.
+
+Monitor archival success and storage costs using Azure Monitor and Cost Management.
