@@ -1,0 +1,1 @@
+Write a Python Azure Function that connects to Azure Cosmos DB, queries for documents older than 90 days, uploads them to Azure Blob Storage as JSON files, and deletes them from Cosmos DB. Include usage of azure-functions, azure-cosmos, and azure-storage-blob packages.
