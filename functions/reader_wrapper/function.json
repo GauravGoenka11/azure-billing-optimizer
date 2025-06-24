@@ -1,0 +1,10 @@
+def get_billing_record(record_id):
+    try:
+        return cosmos_container.read_item(record_id, partition_key=record_id)
+    except Exception:
+        blob_client = blob_container.get_blob_client(f"{record_id}.json")
+        if blob_client.exists():
+            blob_data = blob_client.download_blob().readall()
+            return json.loads(blob_data)
+        else:
+            raise Exception("Record not found")
