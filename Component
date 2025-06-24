@@ -1,0 +1,17 @@
+1. Data Tiering
+
+Store recent billing data (<= 3 months) in Azure Cosmos DB.
+
+Move older records to Azure Blob Storage (Cool or Archive tier) in compressed JSON format.
+
+2. Archival Function
+
+Timer-triggered Azure Function identifies and migrates records older than 3 months.
+
+Archives data in blob storage.
+
+Deletes the migrated data from Cosmos DB.
+
+3. Fallback Read Access
+
+If a record is not found in Cosmos DB, fallback logic fetches it from Blob Storage.
