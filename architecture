@@ -1,0 +1,22 @@
+                        +-----------------------+
+                        |   Frontend/API Layer  |
+                        +-----------------------+
+                                  |
+                                  v
+                      +---------------------------+
+                      | Azure Function (Billing API) |
+                      +---------------------------+
+                         |                    |
+                (Read/Write Recent)     (Read Archived)
+                         |                    |
+            +----------------------+     +-------------------+
+            |  Azure Cosmos DB     |<--> | Azure Blob Storage |
+            | (Hot Data <= 3 mo)   |     | (Archived Data)    |
+            +----------------------+     +-------------------+
+                         ^                    |
+                         |         +---------------------------+
+                         |         | Azure Function (Archiver) |
+                         |         +---------------------------+
+                         |                    ^
+                         |            Scheduled Timer Trigger
+                         +----------------------
